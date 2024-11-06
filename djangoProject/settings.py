@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'tasks',
     'tailwind',
     'theme',
-
+    'gunicorn'
 ]
 
 TAILWIND_APP_NAME = 'theme'
