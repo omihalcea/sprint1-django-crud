@@ -88,10 +88,9 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default='postgresql://postgres:postgres@localhost/postgres',
-        conn_max_age=600
     )
 }
-
+DATABASES['default']['CONN_MAX_AGE'] = 600
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
