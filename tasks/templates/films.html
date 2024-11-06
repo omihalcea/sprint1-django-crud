@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen py-12 px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-teal-600 mb-8">Films</h1>
+        <a href="{% url 'add_film' %}" class="px-4 py-2 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition duration-300">Add Film</a>
+    </div>
+
+    <div class="mt-12 max-w-4xl mx-auto">
+        <ul class="space-y-4">
+            {% for film in films %}
+                <li class="bg-white p-6 rounded-lg shadow-md">
+                    <a href="{% url 'film_detail' film.id %}" class="text-2xl font-semibold text-gray-800 hover:text-teal-600 transition duration-300">
+                        {{ film.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

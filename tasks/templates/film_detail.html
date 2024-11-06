@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen py-12 px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-teal-600 mb-8">Film Detail</h1>
+        <h2 class="text-3xl font-semibold text-gray-800 mb-4">{{ film.title }}</h2>
+    </div>
+
+    <div class="max-w-xl mx-auto">
+        <form method="POST" class="bg-white p-6 rounded-lg shadow-md space-y-4 mb-8">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="w-full px-4 py-2 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition duration-300">
+                Update Film
+            </button>
+        </form>
+
+        <form action="{% url 'delete_film' film.id %}" method="POST" class="bg-red-100 p-4 rounded-lg shadow-md">
+            {% csrf_token %}
+            <button type="submit" class="w-full px-4 py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition duration-300">
+                Delete Film
+            </button>
+        </form>
+
+        <div class="text-center mt-8">
+            <a href="{% url 'films' %}" class="text-teal-600 hover:text-teal-700 font-semibold transition duration-300">
+                Back to Films
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

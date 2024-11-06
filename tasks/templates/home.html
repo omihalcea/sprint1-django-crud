@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen py-12 px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+
+        <h1 class="text-4xl font-bold text-teal-600">Movie Management Project</h1>
+        <p class="mt-4 text-lg text-gray-600">
+            An application developed with Python and Django to manage movies. It includes a complete authentication system with registration, login, logout, and CRUD features to organize your favorite movies.
+        </p>
+    </div>
+
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800">Login</h2>
+            <p class="mt-2 text-gray-600">
+                Access the platform to manage your movie collection. The login functionality ensures that only authorized users can enter.
+            </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800">User Registration</h2>
+            <p class="mt-2 text-gray-600">
+                Sign up and create your own account. The system allows new users to easily join and manage their movie collection.
+            </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800">Logout</h2>
+            <p class="mt-2 text-gray-600">
+                Securely end your session with the integrated logout system, ensuring the privacy of your account and personal data.
+            </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800">Movie Management (CRUD)</h2>
+            <p class="mt-2 text-gray-600">
+                Add, view, edit, and delete movies from your collection. The CRUD system gives you full control over your movie library.
+            </p>
+        </div>
+    </div>
+    
+    {% if user.is_authenticated %}
+    <div class="mt-16 text-center">
+        <a href="{% url 'films' %}" class="px-8 py-3 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition duration-300">
+            Get Started Now!
+        </a>
+    </div>
+    {% else %}
+        <div class="mt-16 text-center">
+        <a href="{% url 'signup' %}" class="px-8 py-3 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition duration-300">
+            Sign Up Now!
+        </a>
+    {% endif %}
+</div>
+{% endblock %}
+</div>

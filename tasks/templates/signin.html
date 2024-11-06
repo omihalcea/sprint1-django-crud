@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen py-12 px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-teal-600 mb-8">Sign In</h1>
+        {% if error %}
+            <div class="text-red-600 text-sm mb-4">{{ error }}</div>
+        {% endif %}
+    </div>
+
+    <div class="max-w-xl mx-auto">
+        <form action="/signin/" method="POST" class="bg-white p-6 rounded-lg shadow-md space-y-4 mb-8">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="w-full px-4 py-2 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition duration-300">
+                Sign In
+            </button>
+        </form>
+
+        <div class="text-center mt-8">
+            <a href="{% url 'signup' %}" class="text-teal-600 hover:text-teal-700 font-semibold transition duration-300">
+                Don't have an account? Sign Up
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
